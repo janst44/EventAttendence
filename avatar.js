@@ -14,12 +14,14 @@ function mainCtrl ($scope) {
     $scope.users.push({ 
       name: user.name,
       avatarUrl: user.url,
-      email: user.email
+      email: user.email,
+      address: user.address,
     }); /* [1] */
     
     user.name = ''; /* [2] */
     user.url = '';
     user.email = '';
+    user.address = '';
   };
 }
 
@@ -45,6 +47,7 @@ function avatarDirective () {
         '<img ng-src="{{user.avatarUrl}}" />' +
         '<h4>{{user.name}}</h4>' +
         '<h5>{{user.email}}</h5>' +
+        '<h5>{{user.address}}</h5>' +
       '</div>'
     ), /* [3] */
     link: link
