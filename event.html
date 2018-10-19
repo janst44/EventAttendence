@@ -37,7 +37,7 @@
             </form>
 
             <div ng-repeat="event in events">
-                <span style="font-size:20px; margin-left:10px;">
+                <span class="text-primary" style="font-size:20px; margin-left:10px; text-align:center;">
                     {{event.title}}
                 </span>
                 <span>
@@ -48,21 +48,21 @@
         </script>
 
         <script type="text/ng-template" id="/events.html">
-            <div class="page-header">
-                <h3>{{event.title}}</h3>
+            <div class="page-header" style="text-align:center;">
+                <h3 class="text-primary">{{event.title}}</h3>
             </div>
 
             <div ng-repeat="question in event.questions | orderBy:'-upvotes'">
                 <span class="glyphicon glyphicon-thumbs-up"
                 ng-click="incrementUpvotes(question)"></span>
                 {{question.upvotes}} 
-                <span style="font-size:20px; margin-left:10px;">
+                <span class="text-primary" style="font-size:20px; margin-left:10px;">
                     {{question.body}}
                 </span>
             </div>
             
             <form ng-submit="addQuestion()" style="margin-top:30px;">
-                <h3>Add a new question</h3>
+                <h3 class="text-primary">Add a new question</h3>
         
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Question"
@@ -70,6 +70,16 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Event</button>
             </form>
+            
+            <div class="page-header" style="text-align:center;">
+                <h3 class="text-primary">List of attendees</h3>
+            </div>
+            
+            <div ng-repeat="attendee in event.attendees">
+                <span class="text-primary" style="font-size:20px; margin-left:10px;">
+                    {{attendee}}
+                </span>
+            </div>
 
         </script>
     </body>

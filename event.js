@@ -34,18 +34,17 @@ angular.module('Events', ['ui.router'])
     function($scope, $stateParams, eventFactory){
         $scope.events = eventFactory.events;
         
-        $scope.incrementUpvotes = function(event){
-            event.upvotes += 1; 
-        };
-        
         $scope.addEvent = function(){
             if($scope.formContent === '') { return; }
+            
             $scope.events.push({
                 title: $scope.titleContent,
                 upvotes: 0,
+                attendees: $scope.attendeesContent.split(','),
                 questions: []
             });
             $scope.titleContent = '';
+            $scope.attendeesContent = '';
         };
     }
 ])
