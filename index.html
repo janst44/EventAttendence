@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- include our dependency on angular -->
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+        <script src="index.js"></script>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <meta charset="utf-8">
+        <title>Event Attendance</title>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <ui-view></ui-view>
+            </div>
+        </div>
+        
+        <div class="page-header">
+            <h1 class="text-primary">Welcome to the Event Attendance App!</h1>
+        </div>
+        
+        <div>
+            <button id="createEventButton" onclick="createAnEvent()" class="btn btn-primary" >Create Event</button>
+            <button id="joinEventButton" onclick="joinEvent()" class="btn btn-primary" >Join Event</button>
+        </div>
+        
+    </body>
+</html>
