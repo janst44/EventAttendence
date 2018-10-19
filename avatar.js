@@ -2,28 +2,30 @@
  * 1. We have added a directive with the name 'avatar' and handler of
  * avatarDirective to our angular app module
  */
-angular.module('app', [])
-  .controller('mainCtrl', mainCtrl)
-  .directive('avatar', avatarDirective);
-
-function mainCtrl ($scope) {
+var app = angular.module('app', []);
+  app.controller('mainCtrl', ['$scope', function($scope) {
 
   $scope.users = [];
+  $scope.count = 0;
+  console.log($scope.count);
 
   $scope.addNew = function (user) {
+    $scope.count++;
+    console.log("HI");
     $scope.users.push({ 
       name: user.name,
       avatarUrl: user.url,
       email: user.email,
-      address: user.address,
     }); /* [1] */
     
     user.name = ''; /* [2] */
     user.url = '';
     user.email = '';
-    user.address = '';
   };
-}
+}]);
+app.directive('avatar', avatarDirective);
+
+
 
 /**
  * 1. this defines the api of our avatar directive. This means we are
@@ -43,11 +45,10 @@ function avatarDirective () {
     restrict: 'E', /* [2] */
     replace: 'true',
     template: (
-      '<div class="Avatar">' +
+      '<div class="Avatar" position="absolute">' +
         '<img ng-src="{{user.avatarUrl}}" />' +
         '<h4>{{user.name}}</h4>' +
         '<h5>{{user.email}}</h5>' +
-        '<h5>{{user.address}}</h5>' +
       '</div>'
     ), /* [3] */
     link: link

@@ -18,5 +18,18 @@
 }
 
 .Avatar h5 {
-  color: blue;
+  color: yellow;
+}
+
+.columns {
+  columns: 4;
+  height: 100vh;
+  column-fill:auto;
+}
+body {
+  color: red;
+}
+
+span{
+  font-size: 20px;
 }

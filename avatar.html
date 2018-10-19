@@ -3,34 +3,38 @@
 <head>
   <!-- include our dependency on angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../../Scripts/jquery.backstretch.min.js"></script>
+<script type="text/javascript"> $.backstretch("Navy.jpg", {speed: 150}); </script>
 <script src="avatar.js"></script>
 <link rel="stylesheet" type="text/css" href="avatar.css">
   <meta charset="utf-8">
-  <title>User Avatar Template</title>
+  <title>Head Counter</title>
 </head>
 <body>
   <div ng-app='app' ng-controller='mainCtrl'>
-    <h1>Create new user</h1>
+    <h1 style="color:red">Join this Event</h1>
 
-    <form name='userForm' ng-submit='addNew(userForm)'>
+    <form name='userForm'>
       <input placeholder='Name' ng-model='userForm.name'/>
       <input placeholder='Image Url' ng-model='userForm.url'/>
       <input placeholder='Email:' ng-model='userForm.email'/>
-      <input placeholder='Address:' ng-model='userForm.address'/>
-      <button type='submit'>Add New</button>
+      <button type='button' ng-click='addNew(userForm)'>Join Event</button>
     </form>
-    
+    <p>Number of attendees: <span>{{count}}</span></p>
+
    <!--
  We've clearly gone mad and have replaced the div, img, and h4 tags with what
  appears to be a mythical `avatar` tag.
  Note we have a property of user, passing a value of user. This will be the user object
  from the ng-repeat
 -->
-<ul class='User-list'>
-  <li ng-repeat='user in users'>
+<ul class='columns'>
+  <div ng-repeat='user in users'>
     <avatar user='user' />
-  </li>
+  </div>
 </ul>
   </div>
+
 </body>
 </html>
